@@ -20,7 +20,15 @@ In this repository is an R script called “run_analysis.R”.  This is the R-script
 
 For run_analysis.R to work you need to “source(“run_analysis.R”) into your working R directory.  Once that is done, make sure that the dataset above is in the working directory and run the only function in the file, “tidy_Samsung_data()”.  This will create a “tidy_data.txt” file in your working R directory with the tidy data set required for this assignment.
 
-“run_analysis.R” is well commented so you should be able to follow the steps that were used to transform the provided data set into the one specified for the assignment.
+“run_analysis.R” is well commented so you should be able to follow the steps that were used to transform the provided data set into the one specified for the assignment.  However, to summarize, to get the tidy data set required I followed the following steps:
+* Read in the features file
+* Read in both X variable files and applied the features as the column names
+* Read in the Y variable (activity) numbers and added columns to translate those to the activity names
+* Combine the training and test data set then reorder and rename some columns
+* Find X variable names that included “mean()”, “std()”, and “Mean” and then filter them out while keeping the Y variables and subject ID’s
+* Use a split and sapply to summarize the data by subject and activity
+* Recreate the subject and activity columns by using the default row.names created by sapply
+* Update the variable names to include “MEAN.OF.” to distinguish the average variables from the originals.
 
 ###Code Book
 There is also a code book in the repository.  This code book is part of any tidy data set and helps any future users understand what all of the variables are in the tidy data, especially information that is not explicit in the data set itself.  Please refer to that document in the repository for more information.
