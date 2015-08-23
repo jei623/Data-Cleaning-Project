@@ -48,8 +48,12 @@ tidy_Samsung_data <- function(){
       }
       
       #Start of part 2 of the assignment
-      sub_chars <- "mean()|std()"
-      mean_or_std <- grepl(sub_chars, names(data)[4:565]) #get X columns with mean and std (also set.name)
+      data.size = dim(data)[2]
+      has_mean <- grepl("mean", names(data)[5:data.size]) #I decided that meanFreq is also a mean variable
+      has_std <- grepl("std", names(data)[5:data.size])
+      has_Mean <- grepl("Mean", names(data)[5:data.size])
+      
+      mean_or_std <- has_mean | has_std | has_Mean        #get X columns with mean and std (also set.name)
       mean_or_std <- c(TRUE,TRUE,TRUE,TRUE,mean_or_std)   #add in Y columns/factors
       sub_data <- data[,mean_or_std]                      #subset data to remove non-mean/std columns
       
@@ -60,7 +64,8 @@ tidy_Samsung_data <- function(){
       #Start of part 5 of the assignment
       #split the data by test subject and the activity name
       s<-split(sub_data,list(sub_data$subject.id, sub_data$activity.name),5)
-      split.mean <- sapply(s, function(sub_data) colMeans(sub_data[, 5:83]))
+      data.size <- dim(sub_data)[2]
+      split.mean <- sapply(s, function(sub_data) colMeans(sub_data[, 5:data.size]))
       
       #transpose the matrix and turn it into a dataframe
       split.mean <- t(split.mean) 
