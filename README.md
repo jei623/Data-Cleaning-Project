@@ -2,9 +2,13 @@
 As part of the “Getting and Cleaning Data” courser course, I competed this tidy data project that uses data collected at the University of California – Irvine (UCI).  
 ###Study Design
 UCI collected motion data from smartphones being worn by 30 participants doing a variety of activities.  This data was collected to try to predict the activities of people based on the motion data in their smartphones.  A full summary of the data collection process and motivation can be found at this website:
+
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
 The actual data set can be downloaded from 1 of the following 2 locations:
+
 http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip
+
 ###run_analysis.R
 In this repository is an R script called “run_analysis.R”.  This is the R-script that I created to import the data into R and clean it up to meet the assignment requirements.  A short version of the assignment requirements is included here:
  “You should create one R script called run_analysis.R that does the following. 
